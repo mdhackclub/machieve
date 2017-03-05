@@ -5,7 +5,7 @@ A political game - make decisions and machieve.
 
 ## Stage I: Text Based
 ### Framework
-The game is based on the idea of these games: Machieve by Nerial, NationStates by Max Barry, Civilization, Democracy 3.  
+The game is based on the idea of these games: *Reigns* by Nerial, *NationStates* by Max Barry, *Civilization*, *Democracy 3*.  
 
 We will be completely building this project by ourselves.
 
