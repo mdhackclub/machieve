@@ -24,7 +24,8 @@ public class Prototype {
 	public static void changeFac(int varId, int value) {
 
 	}
-
+	
+	//Reinitialize Variables
 	public static void reinit () {
 		Prototype.power = Prototype.init;
 		Prototype.economy = Prototype.init;
