@@ -11,10 +11,11 @@
  *                 /___/                                                            
  */
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
-public class Prototype {
+
+public class Machieve {
 	//Global Variable Initialization
 	public static int 
+	score = 0,
 	init = 320, //Initial Value
 	power = 320, //Ruler's Power (int, 0-1000)
 	economy = 320, //Economy (int, 0-1000)
@@ -23,9 +24,58 @@ public class Prototype {
 	military = 320, //Military Power (int, 0-1000)
 	balance = 320, //Social Balance (int, 0-1000)
 	foreign = 320; //Foreign Relations (int, 0-1000)
+	private static Scanner sc = new Scanner(System.in);
 	
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
+		story_load();
+		
+		story_welcome();
+		
+		
+		System.out.println("Bravo! You've reached the end of the game.");
+	}
+
+	public static void changeFac(int varId, int value) {
+
+	}
+	
+	//Reinitialize Variables
+	public static void reinit () {
+		Machieve.score = 0;
+		Machieve.power = Machieve.init;
+		Machieve.economy = Machieve.init;
+		Machieve.popularity = Machieve.init;
+		Machieve.religion = Machieve.init;
+		Machieve.military = Machieve.init;
+		Machieve.balance = Machieve.init;
+		Machieve.foreign = Machieve.init;
+	}
+	
+	public static void println(String str) {
+		for (int i=0; i<str.length(); i++) {
+			System.out.print(str.charAt(i));
+			try{
+				Thread.sleep(50);
+			} catch (Exception e) {}
+		}
+		System.out.println();
+	}
+	
+	public static void print(String str) {
+		for (int i=0; i<str.length(); i++) {
+			System.out.print(str.charAt(i));
+			try{
+				Thread.sleep(50);
+			} catch (Exception e) {}
+		}
+	}
+	
+	public static void flush() {
+		for (int i=0; i<200; i++)
+			System.out.println();
+	}
+	
+	public static void story_welcome() {
 		
 		println("Hi... Welcome!");
 		
@@ -43,44 +93,35 @@ public class Prototype {
 		
 		flush();
 	}
-
-	public static void changeFac(int varId, int value) {
-
-	}
 	
-	//Reinitialize Variables
-	public static void reinit () {
-		Prototype.power = Prototype.init;
-		Prototype.economy = Prototype.init;
-		Prototype.popularity = Prototype.init;
-		Prototype.religion = Prototype.init;
-		Prototype.military = Prototype.init;
-		Prototype.balance = Prototype.init;
-		Prototype.foreign = Prototype.init;
-	}
-	
-	public static void println(String str) {
-		for (int i=0; i<str.length(); i++) {
-			System.out.print(str.charAt(i));
+	public static void story_load() {
+		println("A game by Mingjie Jiang. Idea created with Joey D. Kim.");
+		println("A work licensed under GNU GPL v3. Worked inside Hack Club.");
+		println("Loading");
+		
+		
+		for (int i=0; i<8; i++) {
+			print("...");
 			try{
-				Thread.sleep(20);
+				Thread.sleep(500);
 			} catch (Exception e) {}
 		}
-		System.out.println();
-	}
-	
-	public static void print(String str) {
-		for (int i=0; i<str.length(); i++) {
-			System.out.print(str.charAt(i));
-			try{
-				Thread.sleep(20);
-			} catch (Exception e) {}
-		}
-	}
-	
-	public static void flush() {
-		for (int i=0; i<200; i++)
-			System.out.println();
+		println("");
+		println("Complete! Welcome to the Machieve World...");
+		println("");
+		print("Entering in 3...");
+		try{
+			Thread.sleep(1000);
+		} catch (Exception e) {}
+		print("2...");
+		try{
+			Thread.sleep(1000);
+		} catch (Exception e) {}
+		print("1...");
+		try{
+			Thread.sleep(1000);
+		} catch (Exception e) {}
+		flush();
 	}
 
 }
