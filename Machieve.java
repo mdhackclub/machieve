@@ -72,7 +72,7 @@ public class Machieve {
 		for (int i=0; i<str.length(); i++) {
 			System.out.print(str.charAt(i));
 			try{
-				Thread.sleep(50);
+				Thread.sleep(0);
 			} catch (Exception e) {}
 		}
 		System.out.println();
@@ -82,7 +82,7 @@ public class Machieve {
 		for (int i=0; i<str.length(); i++) {
 			System.out.print(str.charAt(i));
 			try{
-				Thread.sleep(50);
+				Thread.sleep(0);
 			} catch (Exception e) {}
 		}
 	}
@@ -178,13 +178,21 @@ public class Machieve {
 		}
 		else {
 			if (choice != 4)
-				Machieve.userName = call[choice-1] + Machieve.userName;
+				Machieve.userName = call[choice-1] + " " + Machieve.userName;
 			else {
 				Machieve.userName = call[3];
 				println("[Narrator]: Your name disappeared in the history.");
 			}
 		}
 		} while (choice <1 || choice >4);
+		
+		
+		
+		
+	}
+	
+	public static void story_war() {
+		println("[Solder 2333]: " + Machieve.userName + "! The enemy\'s army is at the capitol!");
 		
 		
 	}
