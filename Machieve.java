@@ -13,11 +13,14 @@
 import java.util.Scanner;
 
 public class Machieve {
+	private static Scanner sc = new Scanner(System.in);
+	
+	public static int init = 320;
+
 	//Global Variable Initialization
 	public static int 
 	score = 0,
 	year = 0,
-	init = 320, //Initial Value
 	power = 320, //Ruler's Power (int, 0-1000)
 	economy = 320, //Economy (int, 0-1000)
 	popularity = 320, //Poll Popularity/Support Rate (int, 0-1000)
@@ -27,8 +30,6 @@ public class Machieve {
 	foreign = 320; //Foreign Relations (int, 0-1000)
 	public static String
 	userName = "";
-	private static Scanner sc = new Scanner(System.in);
-	
 	public static void main(String[] args) {
 		story_load();
 		
@@ -45,25 +46,25 @@ public class Machieve {
 	
 	//Reinitialize Variables
 	public static void reinit () {
-		Machieve.score = 0;
-		Machieve.year = 0;
-		Machieve.power = Machieve.init;
-		Machieve.economy = Machieve.init;
-		Machieve.popularity = Machieve.init;
-		Machieve.religion = Machieve.init;
-		Machieve.military = Machieve.init;
-		Machieve.balance = Machieve.init;
-		Machieve.foreign = Machieve.init;
+		score = 0;
+		year = 0;
+		power = init;
+		economy = init;
+		popularity = init;
+		religion = init;
+		military = init;
+		balance = init;
+		foreign = init;
 	}
 	
 	public static boolean checkProg () {
-		if (Machieve.power < 0 || 
-			Machieve.economy < 0 || 
-			Machieve.popularity < 0 || 
-			Machieve.religion < 0 ||
-			Machieve.military < 0 ||
-			Machieve.balance < 0 ||
-			Machieve.foreign < 0)
+		if (power < 0 || 
+			economy < 0 || 
+			popularity < 0 || 
+			religion < 0 ||
+			military < 0 ||
+			balance < 0 ||
+			foreign < 0)
 				return false;
 		return true;	
 	}
@@ -103,9 +104,11 @@ public class Machieve {
 		println("[Hint: The program is waiting for your input at the \">\" symbol.]");
 		
 		print("It is the great > ");
-		Machieve.userName = sc.nextLine();
+		userName = sc.nextLine();
 		
-		print("Welcome, " + Machieve.userName +"! The Kingdom is awaiting.");
+		println("Welcome, " + userName +"! The Kingdom is awaiting.");
+		
+		print("My Inauguration Address > ");
 		sc.nextLine();
 		
 		flush();
@@ -141,16 +144,6 @@ public class Machieve {
 		flush();
 	}
 	
-	public static void story_next () {
-		//Header
-		Machieve.year++;
-		println("Year: " + Machieve.year + " A.D.");
-		
-		//First Year Story
-		if (Machieve.year == 1) 
-			story_first();
-	}
-	
 	public static void story_first() {
 		println("It\'s a new territory! As the leader of the explorers, you are automatically in charge of everything. ");
 		print("Do you accpet this honor? (yes/no) > ");
@@ -159,42 +152,82 @@ public class Machieve {
 		println("Here... Take this crown...");
 		println("I sincerely don\'t care about what you think.");
 		println("But I'm sure your people do. ");
-		println("Long live the first King of " + Machieve.userName + "sland!");
+		println("Long live the first King of " + userName + "sland!");
 		
 		int choice = 0;
 		do {
 		println("[Advisor Kim]: What do you want your citizens to call you?");
-		println("[1] Dictator " + Machieve.userName);
-		println("[2] King " + Machieve.userName);
-		println("[3] Lord " + Machieve.userName);
-		println("[4] Your Majesty");
+		println("[1] Dictator " + userName);
+		println("[2] King " + userName);
+		println("[3] Lord " + userName);
+		println("[4] Master " + userName);
+		println("[5] President " + userName);
+		println("[6] Chief " + userName);
+		println("[7] Lady " + userName);
+		println("[8] Mistress " + userName);
+		println("[9] Your Majesty");
 		
-		String[] call = {"Dictator", "King", "Lord", "Your Majesty"};
+		String[] call = {"Dictator", "King", "Lord", "Master", "President", "Chief", "Lady", "Mistress", "Your Majesty", };
 		
+		print("I want them to call me > ");
 		choice = sc.nextInt();
-		if (choice < 1 || choice >4) {
+		if (choice < 1 || choice >9) {
 			println("[Advisor Kim]: Please allow me to say this but...");
 			println("... Your choice doesn't make sense.");
 		}
 		else {
-			if (choice != 4)
-				Machieve.userName = call[choice-1] + " " + Machieve.userName;
-			else {
-				Machieve.userName = call[3];
+			if (choice != 9){
+				userName = call[choice-1] + " " + userName;
+				println("[Advisor Kim]: Long live " + userName);
+			} else {
+				userName = call[8];
 				println("[Narrator]: Your name disappeared in the history.");
 			}
 		}
-		} while (choice <1 || choice >4);
+		} while (choice <1 || choice >9);
+		
+		story_war();
 		
 		
+	}
+
+
+	public static void story_next () {
+		//Header
+		year++;
+		println("Year: " + year + " A.D.");
+
+		//Print Stats
+		println(">>>STATS OF " + (userName + "sland<<<").toUpperCase() + "<<<");
+		println("Score: " + score + " | Power: " + stat_rate(power));
+		println("Economy: " + stat_rate(economy) + " | Popularity: " + stat_rate(popularity));
+		println("Religion: " + stat_rate(religion) + " | Military: " + stat_rate(military));
+		println("Balance: " + stat_rate(balance) + " | Diplomacy: " + stat_rate(foreign));
+		
+		//First Year Story
+		if (year == 1) 
+			story_first();
+		else if (year == 2)
+			story_war();
+	}
+	
+	public static void story_war() {
+		println("[Solder 2333]: " + userName + "! The enemy\'s army is at the capitol!");
 		
 		
 	}
 	
-	public static void story_war() {
-		println("[Solder 2333]: " + Machieve.userName + "! The enemy\'s army is at the capitol!");
-		
-		
+	public static String stat_rate(int score) {
+		if (score >= 895)
+			return "Well";
+		else if (score >= 695)
+			return "Good";
+		else if (score >= 495)
+			return "Fair";
+		else if (score >= 295)
+			return "Poor";
+		else 
+			return "Fail";
 	}
 
 }
