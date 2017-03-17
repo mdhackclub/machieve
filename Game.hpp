@@ -2,7 +2,7 @@
 #define GAME_HPP
 
 #include <string>
-#include <map>
+// #include <map>
 
 class Game {
 	int year;
@@ -15,6 +15,8 @@ public:
 	void welcome();
 	bool still_alive();
 	void step();
+	void begin();
+	void war();
 }
 
 #endif // GAME_HPP
