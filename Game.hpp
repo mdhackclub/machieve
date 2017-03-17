@@ -8,6 +8,10 @@ class Game {
 	std::string name;
 public:
 	void Game();
+	void load();
+	void welcome();
+	bool still_alive();
+	void step();
 }
 
 #endif // GAME_HPP
