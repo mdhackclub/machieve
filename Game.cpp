@@ -8,7 +8,9 @@ void Game::Game() {
 }
 
 void Game::load() {
-
+	std::cout << "A game by Joey Kim and Mingjie Jiang." << std::endl;
+	std::cout << "Licenced under GNU GPL v3, sponsored by Hack Club" << std::endl;
+	std::cout << "Welcome to the Machieve world." << std::endl;
 }
 
 void Game::welcome() {
@@ -25,5 +27,13 @@ bool Game::still_alive() {
 void Game::step() {
 	year++;
 	std::cout << "Year: " << year << "A.D." << std::endl;
-	//
+	
+}
+
+void Game::begin() {
+	
+}
+
+void Game::war() {
+	
 }
