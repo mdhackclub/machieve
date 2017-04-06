@@ -7,12 +7,6 @@ void Game::Game() {
 
 }
 
-void Game::load() {
-	std::cout << "A game by Joey Kim and Mingjie Jiang." << std::endl;
-	std::cout << "Licenced under GNU GPL v3, sponsored by Hack Club" << std::endl;
-	std::cout << "Welcome to the Machieve world." << std::endl;
-}
-
 void Game::welcome() {
 	std::cout << "Hello and welcome!" << std::endl;
 	std::cout << "The old king is dead. You are now in control of the country." << std::endl;
